@@ -160,7 +160,7 @@ body {
   height: auto;
 
   left: 55px;
-  top: 70px;
+  top: 20px;
 
   z-index: 1;
 
@@ -342,25 +342,24 @@ body {
 
 .address-form-container {
   width: 100%;
-
-  margin-top: 22px;
+  margin-top: 28px;
 
   max-height: 0;
-
   opacity: 0;
-
   overflow: hidden;
+
+  transform: translateY(12px);
 
   transition:
     max-height 0.7s ease,
-    opacity 0.5s ease;
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
-
 .address-form-container.show {
-  max-height: 700px;
-
+  max-height: 760px;
   opacity: 1;
+  transform: translateY(0);
 }
 
 
@@ -369,40 +368,63 @@ body {
 ======================================== */
 
 .address-form {
-  width: 340px;
+  width: 380px;
+  margin: 0 auto;
 
-  margin:
-    0
-    auto;
-
-  padding: 28px;
+  padding: 32px 30px;
 
   background:
-    #fffaf0;
+    linear-gradient(
+      180deg,
+      #fffaf1 0%,
+      #f7eddc 100%
+    );
 
   border:
     2px solid
-    #7a4b2d;
+    rgba(122, 75, 45, 0.9);
 
-  border-radius: 12px;
+  border-radius: 16px;
 
   box-shadow:
-    0
-    12px
-    28px
-    rgba(0, 0, 0, 0.16);
-}
+    0 18px 35px rgba(0, 0, 0, 0.18),
+    inset 0 0 24px rgba(122, 75, 45, 0.05);
 
+  color: #5c3824;
+}
 
 .address-form h2 {
-  margin-bottom: 22px;
+  margin-bottom: 8px;
 
-  color:
-    #5c3824;
+  font-size: 28px;
+  font-weight: normal;
 
-  font-size: 24px;
+  color: #7a2c1d;
 }
 
+.address-form::before {
+  content: "We'd love to send you a physical Save the Date.";
+
+  display: block;
+
+  margin-bottom: 24px;
+
+  color: #7a604d;
+
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.address-row {
+  display: grid;
+  grid-template-columns: 1.6fr 0.8fr 1fr;
+  gap: 10px;
+}
+
+.address-row input {
+  min-width: 0;
+}
 
 /* ========================================
    FORM INPUTS
@@ -411,23 +433,20 @@ body {
 .address-form input {
   width: 100%;
 
-  padding:
-    12px
-    13px;
+  padding: 13px 14px;
 
-  margin-bottom: 12px;
+  margin-bottom: 13px;
 
   border:
     1px solid
-    #b99572;
+    #c4a17f;
 
-  border-radius: 6px;
+  border-radius: 8px;
 
-  background-color:
-    #fffdf8;
+  background:
+    rgba(255, 253, 248, 0.95);
 
-  color:
-    #5c3824;
+  color: #5c3824;
 
   font-family:
     Georgia,
@@ -438,19 +457,26 @@ body {
 
   outline: none;
 
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.04);
+
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
+.address-form input::placeholder {
+  color: #a1846d;
+}
 
 .address-form input:focus {
-  border-color:
-    #7a4b2d;
+  border-color: #8a551f;
+
+  background-color: #fffdf8;
 
   box-shadow:
-    0 0 0 2px
-    rgba(122, 75, 45, 0.12);
+    0 0 0 3px rgba(138, 85, 31, 0.10);
 }
 
 
@@ -461,19 +487,21 @@ body {
 .submit-address-btn {
   width: 100%;
 
-  padding: 13px;
+  padding: 14px;
 
-  margin-top: 3px;
+  margin-top: 6px;
 
   border: none;
+  border-radius: 9px;
 
-  border-radius: 7px;
+  background:
+    linear-gradient(
+      180deg,
+      #7a4b2d 0%,
+      #5f371f 100%
+    );
 
-  background-color:
-    #7a4b2d;
-
-  color:
-    #fffaf0;
+  color: #fffaf0;
 
   font-family:
     Georgia,
@@ -481,78 +509,137 @@ body {
     serif;
 
   font-size: 17px;
+  letter-spacing: 0.3px;
 
   cursor: pointer;
 
+  box-shadow:
+    0 7px 15px rgba(0, 0, 0, 0.16);
+
   transition:
-    background-color 0.25s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
-
 .submit-address-btn:hover {
-  background-color:
-    #5f371f;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.submit-address-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
 }
 
 
 /* ========================================
-   THANK YOU MESSAGE
+   SUCCESS MESSAGE
 ======================================== */
 
 .success-message {
   display: none;
 
-  width: 340px;
-
+  width: 380px;
   margin: 0 auto;
 
-  padding: 30px 26px;
+  padding: 34px 30px 36px;
 
-  background: #fffaf0;
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf1 0%,
+      #f7eddc 100%
+    );
 
-  border: 2px solid #7a4b2d;
-  border-radius: 12px;
+  border: 2px solid #8a653e;
+  border-radius: 16px;
 
   color: #5c3824;
 
   box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.16);
+    0 18px 35px rgba(0, 0, 0, 0.18),
+    inset 0 0 25px rgba(122, 75, 45, 0.05);
 
   opacity: 0;
-  transform: translateY(10px);
+
+  transform:
+    translateY(15px)
+    scale(0.98);
 }
 
 .success-message.show {
   display: block;
 
-  animation: successFadeIn 0.6s ease forwards;
+  animation:
+    successFadeIn
+    0.65s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.success-heart {
+  margin-bottom: 8px;
+
+  color: #8b1e2d;
+
+  font-size: 26px;
 }
 
 .success-message h2 {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 
   color: #7a2c1d;
 
-  font-size: 28px;
+  font-size: 30px;
+  font-weight: normal;
 }
 
 .success-message p {
   margin-top: 8px;
 
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.55;
+}
+
+.success-divider {
+  margin: 18px 0 10px;
+
+  color: #a47a43;
+
+  font-size: 22px;
+}
+
+.success-message .success-names {
+  margin-top: 0;
+
+  color: #7a2c1d;
+
+  font-size: 24px;
+  font-style: italic;
 }
 
 @keyframes successFadeIn {
+
   from {
     opacity: 0;
-    transform: translateY(10px);
+
+    transform:
+      translateY(15px)
+      scale(0.98);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0)
+      scale(1);
   }
+
 }
 
 
@@ -709,15 +796,23 @@ body {
   }
 
 
-  .address-form {
-    width: 100%;
-    max-width: 320px;
-  }
-
-
+  .address-form,
   .success-message {
     width: 100%;
-    max-width: 320px;
+    max-width: 330px;
   }
 
+  .address-form {
+    padding: 26px 22px;
+  }
+
+  .address-form h2,
+  .success-message h2 {
+    font-size: 25px;
+  }
+
+  .address-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
