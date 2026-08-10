@@ -35,15 +35,15 @@ body {
   align-items: flex-start;
 
   padding:
-    360px
+    200px
     20px
-    160px;
+    120px;
 }
 
 
 .wedding-experience {
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
 
   text-align: center;
 }
@@ -56,13 +56,12 @@ body {
 .envelope {
   position: relative;
 
-  width: 580px;
-  height: 380px;
+  width: 1000px;
+  aspect-ratio: 1.53 / 1;
 
   margin: 0 auto;
 
   cursor: pointer;
-
   user-select: none;
 }
 
@@ -74,21 +73,19 @@ body {
 .envelope-body {
   position: absolute;
 
-  left: 0;
-  top: 0;
+  left: -10%;
+  top: -10%;
 
   width: 100%;
-  height: 100%;
+  height: auto;
 
-  object-fit: contain;
+  display: block;
 
   z-index: 3;
 
   filter:
     drop-shadow(
-      0
-      18px
-      20px
+      0 18px 20px
       rgba(0, 0, 0, 0.22)
     );
 
@@ -106,9 +103,9 @@ body {
 .wax-seal {
   position: absolute;
 
-  width: 100px;
+  width: 300px;
 
-  left: 50%;
+  left: 40%;
 
   /*
     KEEP THIS AT THE VALUE YOU LIKED.
@@ -116,7 +113,7 @@ body {
     If your previous position was different,
     change only this number.
   */
-  top: 175px;
+  top: 190px;
 
   transform:
     translateX(-50%)
@@ -156,11 +153,11 @@ body {
 .save-the-date-card {
   position: absolute;
 
-  width: 470px;
+  width: 530px;
   height: auto;
 
-  left: 55px;
-  top: 20px;
+  left: 140px;
+  top: 100px;
 
   z-index: 1;
 
@@ -239,7 +236,7 @@ body {
 ======================================== */
 
 .open-text {
-  margin-top: 30px;
+  margin-top: -50px;
 
   color: #5c3824;
 
@@ -253,11 +250,12 @@ body {
 
 .wedding-experience.opened .open-text {
   opacity: 0;
-
-  transform:
-    translateY(-8px);
-
   visibility: hidden;
+
+  height: 0;
+  margin: 0;
+
+  transform: translateY(-8px);
 }
 
 
@@ -269,7 +267,7 @@ body {
   position: relative;
   z-index: 20;
 
-  margin-top: 25px;
+  margin-top: -200px;
 
   padding:
     14px
@@ -299,7 +297,7 @@ body {
   visibility: hidden;
 
   transform:
-    translateY(12px);
+    translateY(0px);
 
   box-shadow:
     0
