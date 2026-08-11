@@ -21,7 +21,38 @@ body {
     "Times New Roman",
     serif;
 
-  background-color: #e8dcc8;
+  background:
+
+    radial-gradient(
+      ellipse at 50% 38%,
+    rgba(255, 250, 235, 0.55) 0%,
+    rgba(255, 250, 235, 0.25) 25%,
+      transparent 55%
+    ),
+    
+    repeating-linear-gradient(
+      0deg,
+    rgba(92, 56, 36, 0.045) 0px,
+    rgba(92, 56, 36, 0.045) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+
+    repeating-linear-gradient(
+      90deg,
+    rgba(255, 255, 255, 0.055) 0px,
+    rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+
+    radial-gradient(
+      ellipse at center,
+    #fff8ea 0%,
+    #755238 100%
+    );
+
+  background-attachment: fixed;
 
   color: #5c3824;
 }
@@ -736,8 +767,8 @@ body {
 
 
   .envelope {
-    width: 320px;
-    height: 210px;
+    width: 500px;
+    height: 320px;
   }
 
 
@@ -748,20 +779,20 @@ body {
 
 
   .wax-seal {
-    width: 60px;
+    width: 130px;
 
     /*
       Adjust this if needed after
       viewing on a phone.
     */
-    top: 96px;
+    top: 100px;
   }
 
 
   .save-the-date-card {
     width: 290px;
 
-    left: 15px;
+    left: 70px;
     top: 35px;
 
     transform:
@@ -779,7 +810,7 @@ body {
 
 
   .open-text {
-    margin-top: 24px;
+    margin-top: 0px;
 
     font-size: 18px;
   }
@@ -797,7 +828,7 @@ body {
   .address-form,
   .success-message {
     width: 100%;
-    max-width: 330px;
+    max-width: 250px;
   }
 
   .address-form {
